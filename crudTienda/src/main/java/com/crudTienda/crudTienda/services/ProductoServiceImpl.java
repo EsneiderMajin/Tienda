@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -42,6 +43,8 @@ public class ProductoServiceImpl implements IProductoService{
 
     @Override
     public ProductoDTO updateProducto(Integer id, ProductoDTO productoDTO) {
+
+
         return null;
     }
 
@@ -51,5 +54,11 @@ public class ProductoServiceImpl implements IProductoService{
         Producto producto = modelMapper.map(productoDTO, Producto.class);
         ProductoDTO productoDTO1 = modelMapper.map(iProductoRepository.save(producto), ProductoDTO.class);
         return productoDTO1;
+    }
+
+    @Override
+    public Boolean deleteProducto(final Integer idProducto) {
+        this.iProductoRepository.deleteById(idProducto);
+        return true;
     }
 }

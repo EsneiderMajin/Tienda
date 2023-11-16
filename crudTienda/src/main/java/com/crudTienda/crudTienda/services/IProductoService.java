@@ -13,4 +13,6 @@ public interface IProductoService {
     public ProductoDTO updateProducto(Integer  idProducto,ProductoDTO productoDTO);
 
     public ProductoDTO createProducto(ProductoDTO productoDTO);
+
+    Boolean deleteProducto(Integer idProducto);
 }

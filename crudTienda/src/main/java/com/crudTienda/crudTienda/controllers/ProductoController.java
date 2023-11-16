@@ -35,6 +35,13 @@ public class ProductoController {
     public ResponseEntity<List<ProductoDTO>> getAllProducto() {
         return ResponseEntity.status(HttpStatus.OK).body(this.iProductoService.findAllProducto());
     }
+
+    @DeleteMapping("/deleteProducto")
+    public ResponseEntity<String> deleteProductoById(@RequestParam Integer idProducto) {
+        this.iProductoService.deleteProducto(idProducto);
+        return ResponseEntity.status(HttpStatus.OK).body("eliminado");
+    }
+
 }
 
 
